@@ -1,0 +1,4 @@
+allowBuilds:
+  esbuild: false
+minimumReleaseAgeExclude:
+  - '@sveltejs/kit@2.61.1'
