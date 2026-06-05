@@ -3,7 +3,7 @@
 </script>
 
 <header>
-    <nav>
+    <nav class="text-white">
         <a href={resolve("/", {})}>Home</a>
         <a href={resolve("/", {})}>Experiences</a>
         <a href={resolve("/", {})}>Projects</a>
