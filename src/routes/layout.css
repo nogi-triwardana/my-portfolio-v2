@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+html {
+	scroll-behavior: smooth;
+}
+
 @layer support {
   * {
     box-sizing: border-box;
@@ -46,7 +50,7 @@
   perspective: 1000px;
   /* transform: rotate(60deg); */
 
-  place-items: center;
+  /* place-items: center; */
   overflow: clip;
   position: sticky;
   top: 0;
@@ -65,8 +69,8 @@
     }
 
     &.special.special {
-      grid-row: 2 / span 2;
-      grid-column: 2 / span 2;
+      grid-row: 1 / -1;
+      grid-column: 1 / -1;
     }
 
     &:nth-of-type(1) {
@@ -122,4 +126,62 @@
     }
   }
 
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.rgb-line {
+  display: block;          
+  width: 100%;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #ff0040, #ffae00, #00ff90, #00b3ff, #a200ff, #ff0040);
+  background-size: 300% 100%;
+  animation: line 3s linear infinite;
+}
+
+.rgb-border {
+  padding: 14px 32px;
+  font-size: 16px;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 12px;
+
+  
+  background:
+    linear-gradient(#111, #111) padding-box,
+    conic-gradient(from var(--angle), #ff0040, #ffae00, #00ff90, #00b3ff, #a200ff, #ff0040) border-box;
+
+  animation: rotate 3s linear infinite;
+}
+
+.rgb-text {
+  font-size: 16;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff0040, #ffae00, #00ff90, #00b3ff, #a200ff, #ff0040);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: text 4s linear infinite;
+}
+
+@keyframes rotate {
+  to { --angle: 360deg; }
+}
+
+
+@keyframes line {
+  to { background-position: 300% 0; }
+}
+
+@keyframes text {
+  to { background-position: 300% 0; }
 }
