@@ -1,4 +1,7 @@
 allowBuilds:
+  '@firebase/util': true
   esbuild: false
+  protobufjs: true
+  sharp: true
 minimumReleaseAgeExclude:
   - '@sveltejs/kit@2.61.1'

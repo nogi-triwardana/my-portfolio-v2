@@ -1,5 +1,23 @@
 {
 	"files.associations": {
 		// "*.css": "tailwindcss"
-	}
+	},
+	"svelte.enable-ts-plugin": true,
+	"svelte.language-server.debug": true,
+	"editor.tabSize": 2,
+	"window.autoDetectColorScheme": true,
+	"js/ts.implicitProjectConfig.checkJs": true,
+	"editor.maxTokenizationLineLength": 200000000000000000,
+	"svelte.enable-ts-plugin": true,
+	"svelte.language-server.debug": true,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"javascript.preferences.importModuleSpecifier": "non-relative",
+	"svelte.plugin.typescript.enable": true,
+	"editor.tabSize": 2,
+	"typescript.preferences.preferTypeOnlyAutoImports": true,
+	"typescript.suggest.autoImports": true,
+	"javascript.suggest.autoImports": true,
+	"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
 }

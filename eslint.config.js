@@ -10,6 +10,7 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import ts from 'typescript-eslint';
 import svelteConfig from './svelte.config.js';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
 
@@ -24,9 +25,26 @@ export default defineConfig(
 		languageOptions: {
 			globals: { ...globals.browser, ...globals.node }
 		},
+		plugins: {
+			'unused-imports': unusedImports,
+		},
 		rules: { // typescript-eslint strongly recommend that you do not use the no-undef lint rule on TypeScript projects.
-		// see: https://typescript-eslint.io/troubleshooting/faqs/eslint/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
-		"no-undef": 'off' }
+			// see: https://typescript-eslint.io/troubleshooting/faqs/eslint/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+			"no-undef": 'off',
+			// Rule to automatically remove unused imports
+			'unused-imports/no-unused-imports': 'error',
+
+			// Rule to warn about unused variables (excluding imports)
+			'unused-imports/no-unused-vars': [
+				'warn',
+				{
+					vars: 'all',
+					varsIgnorePattern: '^_',
+					args: 'after-used',
+					argsIgnorePattern: '^_',
+				},
+			], 
+		},
 	},
 	{
 		files: [

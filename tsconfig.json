@@ -32,6 +32,7 @@
 	  "useDefineForClassFields": true,
 	  "esModuleInterop": true,
 	  "allowSyntheticDefaultImports": true,
+	  "moduleResolution": "bundler",
 	  "resolveJsonModule": true,
 	  "removeComments": true,
 	  "experimentalDecorators": true,
